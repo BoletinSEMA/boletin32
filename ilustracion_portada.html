@@ -24,25 +24,63 @@
     padding-right: 40px">
 
 	<!-- Page content -->
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-MML-AM_CHTML">
+</script>
+<style type="text/css"> 
+  .MathJax_MathML {text-indent: 0;} 
+  </style> 
+	<div w3-include-html="ilustracion_portada_body.html"></div>
+      </div><hr class="endfigure" />
 
-        <div class="center">
-<img 
-src="img/ilustracion_portada.png" alt="PIC"  
-width="464"   /></p></div><!--l. 81--><p class="indent" >
-      </div>
+  <!-- End right container -->
+  </div>
 
-        
-<!--l. 96--><p class="noindent" ><span 
-class="ecsl-1000">Dise</span><span 
-class="ecsl-1000">ñ</span><span 
-class="ecsl-1000">o de la portada</span>: FOG.
-</p><!--l. 97--><p class="noindent" ><span 
-class="ecsl-1000">Ilustraci</span><span 
-class="ecsl-1000">ó</span><span 
-class="ecsl-1000">n de la portada</span>: Sección del interior de un nautilo, destacando la espiral
-logarítmica característica de esta especie (imagen tomada en L’Aquàrium de
-Barcelona).
-</p><!--l. 92--><p class="indent" >
+  <script>
+    // Script to open and close sidebar
+    function w3_open() {
+    document.getElementById("mySidebar").style.display = "block";
+    document.getElementById("myOverlay").style.display = "block";
+    }
+    function w3_close() {
+    document.getElementById("mySidebar").style.display = "none";
+    document.getElementById("myOverlay").style.display = "none";
+    }
+  </script>
+
+  <script>
+    function includeHTML() {
+    var z, i, elmnt, file, xhttp;
+    /* Loop through a collection of all HTML elements: */
+    z = document.getElementsByTagName("*");
+    for (i = 0; i < z.length; i++) {
+		    elmnt = z[i];
+		    /*search for elements with a certain atrribute:*/
+		    file = elmnt.getAttribute("w3-include-html");
+		    if (file) {
+		    /* Make an HTTP request using the attribute value as the file name: */
+		    xhttp = new XMLHttpRequest();
+		    xhttp.onreadystatechange = function() {
+		    if (this.readyState == 4) {
+		    if (this.status == 200) {elmnt.innerHTML = this.responseText;}
+		    if (this.status == 404) {elmnt.innerHTML = "Page not found.";}
+		    /* Remove the attribute, and call this function once more: */
+		    elmnt.removeAttribute("w3-include-html");
+		    includeHTML();
+		    }
+		    }
+		    xhttp.open("GET", file, true);
+		    xhttp.send();
+		    /* Exit the function: */
+		    return;
+		    }
+		    }
+		    }
+		    </script>
+
+  <script>
+    includeHTML();
+  </script>
 
 </body>
 </html>
